@@ -23,6 +23,15 @@ def test_guest_should_see_login_link_on_product_page(browser):
     page.open()
     page.should_be_login_link()
 
+@pytest.mark.parametrize('link',
+                         [f"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer{N}" for N in
+                          range(1)])
+def test_guest_can_add_product_to_basket(browser, link):
+    page = ProductPage(browser, link)
+    page.open()
+    page.add_to_basket_btn()
+    page.check_name()
+    page.check_price()
 
 @pytest.mark.parametrize('link',
                          [f"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer{N}" for N in
@@ -35,8 +44,9 @@ def test_guest_cant_see_success_message_after_adding_product_to_basket(browser, 
     page.is_not_element_present(*ProductPageLocators.PRODUCT_NAME_ALERT)
 
 
+
 @pytest.mark.parametrize('link',
-                         [f"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer{N}" for N in
+                         ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer{N}" for N in
                           range(1)])
 def test_guest_cant_see_success_message(browser, link):
     page = ProductPage(browser, link)

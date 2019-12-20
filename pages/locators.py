@@ -13,11 +13,6 @@ class BasketPageLocators:
     PRODUCTS_IN_BASKET = (By.CSS_SELECTOR, ".basket_summary")
 
 
-class MainPageLocators:
-    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
-
-
-
 class ProductPageLocators:
     PRODUCT_NAME_PAGE = (By.TAG_NAME, "h1")
     PRODUCT_NAME_ALERT = (By.CSS_SELECTOR, ".alertinner>strong")
@@ -29,6 +24,11 @@ class ProductPageLocators:
 
 class LoginPageLocators:
     LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
+    LOGIN_EMAIL = (By.CSS_SELECTOR, "#id_login-username")
+    LOGIN_PASSWORD = (By.CSS_SELECTOR, "#id_login-password")
     REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
+    REGISTRATION_EMAIL = (By.CSS_SELECTOR, "#registration-email")
+    REGISTRATION_PASSWORD = (By.CSS_SELECTOR, "#registration-password1")
+    CONFIRM_PASSWORD = (By.CSS_SELECTOR, "#registration-password2")
 
 
