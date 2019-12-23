@@ -2,7 +2,6 @@ import pytest
 from pages.product_page import ProductPage
 from pages.basket_page import BasketPage
 from pages.login_page import LoginPage
-from pages.locators import ProductPageLocators
 
 link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer'
 
@@ -91,17 +90,7 @@ class TestUserAddToBasketFromProductPage:
         page.success_message_not_presented()
 
     @pytest.mark.need_review
-    @pytest.mark.parametrize('link',
-                             [f"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer{N}" for
-                              N in
-                              range(7)] +
-                             [pytest.param(
-                                 "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer7",
-                                 marks=pytest.mark.xfail)] +
-                             [f"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer{N}" for
-                              N in
-                              range(8, 10)])
-    def test_user_can_add_product_to_basket(self, browser, link):
+    def test_user_can_add_product_to_basket(self, browser):
         page = ProductPage(browser, self.link)
         page.open()
         page.should_be_authorized_user()
