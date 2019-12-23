@@ -8,7 +8,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 class BasketPage(BasePage):
     def should_be_basket_page(self):
         self.should_be_basket_url()
-        self.should_be_basket_titile()
+        self.should_be_basket_title()
 
     def should_be_basket_url(self):
         # check 'login' in url
